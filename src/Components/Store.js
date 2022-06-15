@@ -7,18 +7,21 @@ import { fetchProduct } from '../redux/products/productAction';
 //component
 import Product from './Product';
 
+//styles
+import styles from './Store.module.css';
+
 const Store = () => {
 
     const dispatch = useDispatch();
     const productsState = useSelector(state => state.productState);
 
     useEffect(() => {
-        dispatch(fetchProduct())
+      if (!productsState.products.length) dispatch(fetchProduct())
     }, [])
 
     return (
 
-        <div>
+        <div className={styles.container}>
             {
                 productsState.loading ?
                 <h2>Loading...</h2> :

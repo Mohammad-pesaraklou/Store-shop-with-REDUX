@@ -14,6 +14,7 @@ function App() {
      <>
       <Provider store={store}>
      <Routes>
+      <Route path="/products/:id" element={<DetailsPage />}/>
       <Route path="/products" element={<Store />}/>
       <Route path="/*" element={<Navigate to='/products'/>}/>
      </Routes>
