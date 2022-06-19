@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector , useDispatch} from 'react-redux';
 
 //redux action
@@ -12,6 +12,7 @@ import styles from './Store.module.css';
 
 const Store = () => {
 
+    const [search , setSearch] = useState();
     const dispatch = useDispatch();
     const productsState = useSelector(state => state.productState);
 
@@ -22,6 +23,8 @@ const Store = () => {
     return (
 
         <div className={styles.container}>
+
+
             {
                 productsState.loading ?
                 <h2>Loading...</h2> :
